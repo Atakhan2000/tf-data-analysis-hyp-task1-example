@@ -15,9 +15,9 @@ def solution(x_success: int,
     # Не меняйте название функции и её аргументы
     alpha=0.09
     
-    p_value=proportions_ztest([x_success, y_success], [x_cnt, y_cnt], alternative='larger')[1]
+    p_value=proportions_ztest([x_success, y_success], [x_cnt, y_cnt])[1] / 2
     print(p_value)
-    if (p_value < alpha) and (x_success/x_cnt <= y_success/y_cnt):
+    if (p_value < alpha) and (x_success/x_cnt < y_success/y_cnt):
       return True
     else: 
       return False
